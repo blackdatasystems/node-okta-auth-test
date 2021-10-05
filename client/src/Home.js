@@ -4,7 +4,7 @@ import { useOktaAuth } from "@okta/okta-react"
 const Home = () => {
   const [messages, setMessages] = useState([])
   const { authState, oktaAuth } = useOktaAuth()
-  const login = () => oktaAuth.signInWithRedirect({ originalUri: "/profile" })
+  const login = () => oktaAuth.signInWithRedirect({ originalUri: "/authorization-code/callback" })
 
   const callBackend = async () => {
     const response = await fetch("http://localhost:8080/api/locked", {
